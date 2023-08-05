@@ -7,7 +7,9 @@ LinkedList* new_linkedlist(void)
 {
     LinkedList* linkedlist;
     linkedlist = (LinkedList*)malloc(sizeof(LinkedList));
-    linkedlist->len = 0;
+    linkedlist->head = NULL;
+    linkedlist->tail = NULL;
+    linkedlist->len  = 0;
     return linkedlist;
 }
 
