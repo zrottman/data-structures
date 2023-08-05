@@ -50,6 +50,34 @@ int main() {
     printf("enqueing... new length: %d\n", enqueue(q, new_node(6)));
     display_queue(q);
 
+    Node *n;
+
+    n = dequeue(q);
+    printf("dequeued: %d\n", n->value);
+    free(n);
+    display_queue(q);
+
+    n = dequeue(q);
+    printf("dequeued: %d\n", n->value);
+    free(n);
+    display_queue(q);
+    n = dequeue(q);
+    printf("dequeued: %d\n", n->value);
+    free(n);
+    display_queue(q);
+    printf("enqueing... new length: %d\n", enqueue(q, new_node(41)));
+    printf("enqueing... new length: %d\n", enqueue(q, new_node(4)));
+    display_queue(q);
+    n = dequeue(q);
+    printf("dequeued: %d\n", n->value);
+    free(n);
+    display_queue(q);
+    n = dequeue(q);
+    printf("dequeued: %d\n", n->value);
+    free(n);
+    display_queue(q);
+
+    delete_queue(q);
 
     return 0;
 }
