@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include "node.h"
 #include "linkedlist.h"
+#include "queue.h"
 
 int main() {
 
+    /* linked list test */
     LinkedList *my_list;
 
     my_list = new_linkedlist();
@@ -36,6 +38,18 @@ int main() {
     printf("my_list->len: %d\n", my_list->len);
 
     delete_list(my_list);
+
+    /* queue test */
+    Queue *q;
+
+    q = new_queue();
+    printf("enqueing... new length: %d\n", enqueue(q, new_node(56)));
+    printf("enqueing... new length: %d\n", enqueue(q, new_node(41)));
+    printf("enqueing... new length: %d\n", enqueue(q, new_node(4)));
+    printf("enqueing... new length: %d\n", enqueue(q, new_node(92)));
+    printf("enqueing... new length: %d\n", enqueue(q, new_node(6)));
+    display_queue(q);
+
 
     return 0;
 }
