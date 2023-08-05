@@ -12,5 +12,6 @@ Queue*  new_queue(void);
 int     enqueue(Queue *q, Node *n);
 Node*   dequeue(Queue *q, Node *n);
 void    display_queue(Queue *q);
+void    delete_queue(Queue *q);
 
 #endif // QUEUE_H

@@ -43,3 +43,17 @@ void display_queue(Queue *q)
         printf("%d -> ", cur->value);
     printf("\n");
 }
+
+void delete_queue(Queue *q)
+{
+    Node *cur = q->head;
+    Node *tmp;
+
+    while (cur != NULL) {
+        tmp = cur;
+        cur = cur->next;
+        free(tmp);
+    }
+
+    free(q);
+}
