@@ -25,7 +25,7 @@ int enqueue(Queue* q, Node *n)
     return q->len;
 }
 
-Node* dequeue(Queue* q, Node *n)
+Node* dequeue(Queue* q)
 {
     Node *tmp;
     if (q->head != NULL) {

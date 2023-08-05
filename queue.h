@@ -10,7 +10,7 @@ typedef struct Queue {
 
 Queue*  new_queue(void);
 int     enqueue(Queue *q, Node *n);
-Node*   dequeue(Queue *q, Node *n);
+Node*   dequeue(Queue *q);
 void    display_queue(Queue *q);
 void    delete_queue(Queue *q);
 
