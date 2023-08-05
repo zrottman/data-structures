@@ -3,7 +3,7 @@
 #include "linkedlist.h"
 #include "node.h"
 
-LinkedList* new_linkedlist(void)
+LinkedList* ll_new(void)
 {
     LinkedList* linkedlist;
     linkedlist = (LinkedList*)malloc(sizeof(LinkedList));
@@ -13,7 +13,7 @@ LinkedList* new_linkedlist(void)
     return linkedlist;
 }
 
-void append(LinkedList *list, Node *new_node)
+void ll_append(LinkedList *list, Node *new_node)
 {
     if (list->tail == 0) {
         list->head = list->tail = new_node;
@@ -24,7 +24,7 @@ void append(LinkedList *list, Node *new_node)
     list->len++;
 }
 
-void display(LinkedList *list)
+void ll_display(LinkedList *list)
 {
     Node* cur;
     for (cur = list->head; cur != NULL; cur = cur->next)
@@ -32,7 +32,7 @@ void display(LinkedList *list)
     printf("\n");
 }
 
-int delete_node(LinkedList *list, int target)
+int ll_delete_node(LinkedList *list, int target)
 {
     Node *cur, *tmp;
 
@@ -53,7 +53,7 @@ int delete_node(LinkedList *list, int target)
     return -1;
 }
 
-int search(LinkedList *list, int target)
+int ll_search(LinkedList *list, int target)
 {
     Node *cur;
     int  idx = 0;
@@ -66,7 +66,7 @@ int search(LinkedList *list, int target)
     return -1;
 }
 
-void delete_list(LinkedList *list) 
+void ll_delete(LinkedList *list) 
 {
     Node *cur = list->head;
     Node *tmp;

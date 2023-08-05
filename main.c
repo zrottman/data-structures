@@ -9,75 +9,75 @@ int main() {
     /* linked list test */
     LinkedList *my_list;
 
-    my_list = new_linkedlist();
+    my_list = ll_new();
 
-    append(my_list, new_node(1));
-    append(my_list, new_node(2));
-    append(my_list, new_node(3));
-    append(my_list, new_node(4));
-    append(my_list, new_node(5));
-    append(my_list, new_node(6));
-    append(my_list, new_node(7));
+    ll_append(my_list, n_new(1));
+    ll_append(my_list, n_new(2));
+    ll_append(my_list, n_new(3));
+    ll_append(my_list, n_new(4));
+    ll_append(my_list, n_new(5));
+    ll_append(my_list, n_new(6));
+    ll_append(my_list, n_new(7));
 
     printf("my_list->head->value: %d\n", my_list->head->value);
     printf("my_list->tail->value: %d\n", my_list->tail->value);
     printf("my_list->len        : %d\n", my_list->len);
 
-    display(my_list);
+    ll_display(my_list);
 
-    printf("Search for 9: %d\n", search(my_list, 9));
-    printf("Search for 4: %d\n", search(my_list, 4));
-    printf("Search for 2: %d\n", search(my_list, 2));
+    printf("Search for 9: %d\n", ll_search(my_list, 9));
+    printf("Search for 4: %d\n", ll_search(my_list, 4));
+    printf("Search for 2: %d\n", ll_search(my_list, 2));
 
-    printf("Deleting 2  : %d\n", delete_node(my_list, 2));
-    printf("Deleting 9  : %d\n", delete_node(my_list, 9));
+    printf("Deleting 2  : %d\n", ll_delete_node(my_list, 2));
+    printf("Deleting 9  : %d\n", ll_delete_node(my_list, 9));
 
-    display(my_list);
+    ll_display(my_list);
 
-    printf("Search for 2: %d\n", search(my_list, 2));
+    printf("Search for 2: %d\n", ll_search(my_list, 2));
     printf("my_list->len: %d\n", my_list->len);
 
-    delete_list(my_list);
+    ll_delete(my_list);
 
     /* queue test */
     Queue *q;
 
-    q = new_queue();
-    printf("enqueing... new length: %d\n", enqueue(q, new_node(56)));
-    printf("enqueing... new length: %d\n", enqueue(q, new_node(41)));
-    printf("enqueing... new length: %d\n", enqueue(q, new_node(4)));
-    printf("enqueing... new length: %d\n", enqueue(q, new_node(92)));
-    printf("enqueing... new length: %d\n", enqueue(q, new_node(6)));
-    display_queue(q);
+    q = q_new();
+    printf("enqueing... new length: %d\n", q_enqueue(q, n_new(56)));
+    printf("enqueing... new length: %d\n", q_enqueue(q, n_new(41)));
+    printf("enqueing... new length: %d\n", q_enqueue(q, n_new(4)));
+    printf("enqueing... new length: %d\n", q_enqueue(q, n_new(92)));
+    printf("enqueing... new length: %d\n", q_enqueue(q, n_new(6)));
+    q_display(q);
 
     Node *n;
 
-    n = dequeue(q);
+    n = q_dequeue(q);
     printf("dequeued: %d\n", n->value);
     free(n);
-    display_queue(q);
+    q_display(q);
 
-    n = dequeue(q);
+    n = q_dequeue(q);
     printf("dequeued: %d\n", n->value);
     free(n);
-    display_queue(q);
-    n = dequeue(q);
+    q_display(q);
+    n = q_dequeue(q);
     printf("dequeued: %d\n", n->value);
     free(n);
-    display_queue(q);
-    printf("enqueing... new length: %d\n", enqueue(q, new_node(41)));
-    printf("enqueing... new length: %d\n", enqueue(q, new_node(4)));
-    display_queue(q);
-    n = dequeue(q);
+    q_display(q);
+    printf("enqueing... new length: %d\n", q_enqueue(q, n_new(41)));
+    printf("enqueing... new length: %d\n", q_enqueue(q, n_new(4)));
+    q_display(q);
+    n = q_dequeue(q);
     printf("dequeued: %d\n", n->value);
     free(n);
-    display_queue(q);
-    n = dequeue(q);
+    q_display(q);
+    n = q_dequeue(q);
     printf("dequeued: %d\n", n->value);
     free(n);
-    display_queue(q);
+    q_display(q);
 
-    delete_queue(q);
+    q_delete(q);
 
     return 0;
 }

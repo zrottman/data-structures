@@ -3,7 +3,7 @@
 #include "queue.h"
 #include "node.h"
 
-Queue* new_queue(void)
+Queue* q_new(void)
 {
     Queue *q;
     q = malloc(sizeof(Queue));
@@ -13,7 +13,7 @@ Queue* new_queue(void)
     return q;
 }
 
-int enqueue(Queue* q, Node *n)
+int q_enqueue(Queue* q, Node *n)
 {
     if (q->tail == NULL) {
         q->head = q->tail = n;
@@ -25,7 +25,7 @@ int enqueue(Queue* q, Node *n)
     return q->len;
 }
 
-Node* dequeue(Queue* q)
+Node* q_dequeue(Queue* q)
 {
     Node *tmp;
     if (q->head != NULL) {
@@ -36,7 +36,7 @@ Node* dequeue(Queue* q)
     return tmp;
 }
 
-void display_queue(Queue *q)
+void q_display(Queue *q)
 {
     Node *cur;
     for(cur=q->head; cur != NULL; cur=cur->next)
@@ -44,7 +44,7 @@ void display_queue(Queue *q)
     printf("\n");
 }
 
-void delete_queue(Queue *q)
+void q_delete(Queue *q)
 {
     Node *cur = q->head;
     Node *tmp;

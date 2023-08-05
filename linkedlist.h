@@ -9,11 +9,11 @@ typedef struct LinkedList {
     int  len;
 } LinkedList;
 
-LinkedList  *new_linkedlist(void);
-void        append(LinkedList *list, Node *new_node);
-void        display(LinkedList *list);
-int         delete_node(LinkedList *list, int target);
-int         search(LinkedList *list, int target);
-void        delete_list(LinkedList *list);
+LinkedList  *ll_new(void);
+void        ll_append(LinkedList *list, Node *new_node);
+void        ll_display(LinkedList *list);
+int         ll_delete_node(LinkedList *list, int target);
+int         ll_search(LinkedList *list, int target);
+void        ll_delete(LinkedList *list);
 
 #endif // LINKEDLIST_H

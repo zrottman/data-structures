@@ -6,6 +6,6 @@ typedef struct Node {
     struct Node *next;
 } Node;
 
-Node* new_node(int val);
+Node* n_new(int val);
 
 #endif // NODE_H

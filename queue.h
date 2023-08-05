@@ -8,10 +8,10 @@ typedef struct Queue {
     int  len;
 } Queue;
 
-Queue*  new_queue(void);
-int     enqueue(Queue *q, Node *n);
-Node*   dequeue(Queue *q);
-void    display_queue(Queue *q);
-void    delete_queue(Queue *q);
+Queue*  q_new(void);
+int     q_enqueue(Queue *q, Node *n);
+Node*   q_dequeue(Queue *q);
+void    q_display(Queue *q);
+void    q_delete(Queue *q);
 
 #endif // QUEUE_H
