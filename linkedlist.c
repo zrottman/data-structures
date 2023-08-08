@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "linkedlist.h"
 #include "node.h"
 
-LinkedList* ll_new(void)
+LinkedList* CreateLinkedList(void)
 {
     LinkedList* linkedlist;
     linkedlist = (LinkedList*)malloc(sizeof(LinkedList));
@@ -13,69 +14,75 @@ LinkedList* ll_new(void)
     return linkedlist;
 }
 
-void ll_append(LinkedList *list, Node *new_node)
+int ll_append(LinkedList *ll, Node *n)
 {
-    if (list->tail == 0) {
-        list->head = list->tail = new_node;
+    if (ll->tail == 0) {
+        ll->head = ll->tail = n;
     } else {
-        list->tail->next = new_node;
-        list->tail = list->tail->next;
+        ll->tail->next = n;
+        ll->tail = ll->tail->next;
     }
-    list->len++;
+    return ++ll->len;
 }
 
-void ll_display(LinkedList *list)
+void ll_display(LinkedList *ll)
 {
     Node* cur;
-    for (cur = list->head; cur != NULL; cur = cur->next)
-        printf("%d -> ", cur->value);
+    for (cur = ll->head; cur != NULL; cur = cur->next)
+        printf("%s / %s -> ", cur->key, cur->val);
     printf("\n");
 }
 
-int ll_delete_node(LinkedList *list, int target)
+int ll_delete_node(LinkedList *ll, char* target)
 {
-    Node *cur, *tmp;
+    Node *tmp;
 
-    for (cur = list->head; cur != NULL; cur = cur->next) {
-        if (cur->value == target) {
-            list->head = list->head->next;
-            list->len--;
-            free(cur);
-            return 0;
-        } else if (cur->next != NULL && cur->next->value == target) {
+    // check for match at head
+    if (strcmp(ll->head->key, target) == 0) {
+        tmp = ll->head;
+        ll->head = ll->head->next;
+        ll->len--;
+        DestroyNode(tmp);
+        return 0;
+    }
+
+    // else iterate through ll
+    for (Node* cur = ll->head; cur != NULL; cur = cur->next) {
+        if (cur->next != NULL && (strcmp(cur->next->key, target) == 0)) {
             tmp = cur->next;
             cur->next = cur->next->next;
-            list->len--;
-            free(tmp);
+            ll->len--;
+            DestroyNode(tmp);
             return 0;
         }
     }
+
     return -1;
 }
 
-int ll_search(LinkedList *list, int target)
+int ll_search(LinkedList *ll, char* target)
 {
     Node *cur;
     int  idx = 0;
 
-    for (cur = list->head; cur != NULL; cur = cur->next) {
-        if (cur->value == target) { return idx; }
+    for (cur = ll->head; cur != NULL; cur = cur->next) {
+        if (strcmp(cur->key, target) == 0) { return idx; }
         idx++;
     }
 
     return -1;
 }
 
-void ll_delete(LinkedList *list) 
+void DestroyLinkedList(LinkedList *ll) 
 {
-    Node *cur = list->head;
+    Node *cur = ll->head;
     Node *tmp;
 
     while (cur != NULL) {
         tmp = cur;
         cur = cur->next;
-        free(tmp);
+        DestroyNode(tmp);
     }
 
-    free(list);
+    free(ll);
 }
