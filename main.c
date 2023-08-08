@@ -36,39 +36,6 @@ void ht_display(HashTable *h)
 
 int main() {
 
-    /* linked list test */
-    LinkedList *my_list;
-
-    my_list = ll_new();
-
-    ll_append(my_list, n_new(1));
-    ll_append(my_list, n_new(2));
-    ll_append(my_list, n_new(3));
-    ll_append(my_list, n_new(4));
-    ll_append(my_list, n_new(5));
-    ll_append(my_list, n_new(6));
-    ll_append(my_list, n_new(7));
-
-    printf("my_list->head->value: %d\n", my_list->head->value);
-    printf("my_list->tail->value: %d\n", my_list->tail->value);
-    printf("my_list->len        : %d\n", my_list->len);
-
-    ll_display(my_list);
-
-    printf("Search for 9: %d\n", ll_search(my_list, 9));
-    printf("Search for 4: %d\n", ll_search(my_list, 4));
-    printf("Search for 2: %d\n", ll_search(my_list, 2));
-
-    printf("Deleting 2  : %d\n", ll_delete_node(my_list, 2));
-    printf("Deleting 9  : %d\n", ll_delete_node(my_list, 9));
-
-    ll_display(my_list);
-
-    printf("Search for 2: %d\n", ll_search(my_list, 2));
-    printf("my_list->len: %d\n", my_list->len);
-
-    ll_delete(my_list);
-
     /* queue test */
     Queue *q;
 
