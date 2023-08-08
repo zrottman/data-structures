@@ -42,7 +42,7 @@ void q_display(Queue *q)
     printf("\n");
 }
 
-void q_delete(Queue *q)
+void DestroyQueue(Queue *q)
 {
     Node *cur = q->head;
     Node *tmp;

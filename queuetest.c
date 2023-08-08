@@ -45,7 +45,7 @@ int main() {
     free(n);
     q_display(q);
 
-    q_delete(q);
+    DestroyQueue(q);
 
     return 0;
 }
