@@ -8,7 +8,7 @@ typedef struct Queue {
     int  len;
 } Queue;
 
-Queue*  q_new(void);
+Queue*  CreateQueue(void);
 int     q_enqueue(Queue *q, Node *n);
 Node*   q_dequeue(Queue *q);
 void    q_display(Queue *q);
