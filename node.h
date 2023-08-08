@@ -2,10 +2,12 @@
 #define NODE_H
 
 typedef struct Node {
-    int         value;
+    char*       key;
+    char*       val;
     struct Node *next;
 } Node;
 
-Node* n_new(int val);
+Node* CreateNode(char* key, char* val);
+void  DestroyNode(Node* n);
 
 #endif // NODE_H

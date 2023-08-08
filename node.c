@@ -1,12 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "node.h"
 
-Node* n_new(int val)
+Node* CreateNode(char* k, char* v)
 {
-    Node* new_node;
-    new_node = (Node*)malloc(sizeof(Node));
-    new_node->value = val;
-    new_node->next  = NULL;
-    return new_node;
+    Node* node = (Node*)malloc(sizeof(Node));
+    node->key  = (char*)malloc(strlen(k) + 1); // strlen does not include null terminator
+    node->val  = (char*)malloc(strlen(v) + 1);
+    node->next = NULL;
+
+    strcpy(node->key, k); // strcpy includes null terminator
+    strcpy(node->val, v);
+
+    return node;
+}
+
+void DestroyNode(Node* n)
+{
+    free(n->key);
+    free(n->val);
+    free(n);
 }
