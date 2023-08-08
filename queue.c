@@ -21,8 +21,7 @@ int q_enqueue(Queue* q, Node *n)
         q->tail->next = n;
         q->tail = q->tail->next;
     }
-    q->len++;
-    return q->len;
+    return ++q->len;
 }
 
 Node* q_dequeue(Queue* q)
@@ -38,9 +37,8 @@ Node* q_dequeue(Queue* q)
 
 void q_display(Queue *q)
 {
-    Node *cur;
-    for(cur=q->head; cur != NULL; cur=cur->next)
-        printf("%d -> ", cur->value);
+    for(Node* cur=q->head; cur != NULL; cur=cur->next)
+        printf("%s/%s -> ", cur->key, cur->val);
     printf("\n");
 }
 
@@ -52,7 +50,7 @@ void q_delete(Queue *q)
     while (cur != NULL) {
         tmp = cur;
         cur = cur->next;
-        free(tmp);
+        DestroyNode(tmp);
     }
 
     free(q);
