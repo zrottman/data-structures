@@ -27,8 +27,11 @@ size_t ll_append(LinkedList *ll, Node *n)
 
 void ll_display(LinkedList *ll)
 {
-    for (Node* cur = ll->head; cur != NULL; cur = cur->next)
-        printf("%s / %s -> ", cur->key, cur->val);
+    for (Node* cur = ll->head; cur != NULL; cur = cur->next) {
+        //printf("%s / %s -> ", cur->key, cur->val);
+        n_display(cur);
+        printf(" -> ");
+    }
     printf("\n");
 }
 
