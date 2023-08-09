@@ -9,6 +9,6 @@ typedef struct Node {
 
 Node* CreateNode(char* key, char* val);
 void  DestroyNode(Node* n);
-void  display_node(Node* n);
+void  n_display(Node* n);
 
 #endif // NODE_H
