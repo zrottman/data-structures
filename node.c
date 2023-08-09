@@ -22,3 +22,8 @@ void DestroyNode(Node* n)
     free(n->val);
     free(n);
 }
+
+void display_node(Node* n)
+{
+    printf("%s/%s", n->key, n->val);
+}
