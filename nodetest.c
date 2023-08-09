@@ -8,6 +8,9 @@ int main()
     printf("key: %s\n", mynode->key);
     printf("val: %s\n", mynode->val);
 
+    display_node(mynode);
+    printf("\n");
+
     DestroyNode(mynode);
 
     return 0;

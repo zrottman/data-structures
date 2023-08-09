@@ -24,9 +24,13 @@ Wrapper struct to hold references to head and tail plus maintain ongoing length 
 - `q_display()`: display all nodes in queue
 
 ## Stack
-*TODO*
+Wrapper struct to hold reference to top of stack and count.
+- `CreateStack()`: allocate memory for new stack;
+- `DestroyStack()`: destroy all nodes in stack and free memory for stack
+- `s_pop()`: return `s->top` Node and set `s->top = s->top->next`
+- `s_push()`: push new Node to top of stack and point `s->top` to it
 
-## Hashtable
+## HashTable
 - `CreateHashTable()`: creates new hashtable (size specified as argument)
 - `DestroyHashTable()`: *TODO*
 - `hash()`: simple hashing function that sums the ASCII values of a string and mods by hashtable size
