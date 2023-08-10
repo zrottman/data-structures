@@ -19,6 +19,14 @@ Node* CreateNode(char* key, DataType val_type, void* val)
         case INT:
             node->val.data.i = *(int*)val;
             break;
+        case FLOAT:
+            node->val.data.f = *(float*)val;
+            break;
+        default:
+            printf("invalid type");
+            DestroyNode(node);
+            exit(EXIT_FAILURE);
+            break;
     }
 
     node->next = NULL;
@@ -34,14 +42,22 @@ void DestroyNode(Node* n)
     free(n);
 }
 
-void n_display(Node* n)
+void node_print(Node* n)
 {
     printf("%s/", n->key);
     switch (n->val.type) {
         case STRING:
             printf("%s", n->val.data.s);
+            break;
         case INT:
             printf("%d", n->val.data.i);
+            break;
+        case FLOAT:
+            printf("%f", n->val.data.f);
+            break;
+        default:
+            printf("invalid type");
+            break;
     }
 
 }

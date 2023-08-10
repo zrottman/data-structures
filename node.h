@@ -1,11 +1,12 @@
 #ifndef NODE_H
 #define NODE_H
 
-typedef enum DataType { STRING, INT } DataType;
+typedef enum DataType { STRING, INT, FLOAT } DataType;
 
 typedef union Value {
     char* s;
     int   i;
+    float f;
 } Value;
 
 typedef struct VariableData {
@@ -21,6 +22,6 @@ typedef struct Node {
 
 Node* CreateNode(char* key, DataType val_type, void* val);
 void  DestroyNode(Node* n);
-void  n_display(Node* n);
+void  node_print(Node* n);
 
 #endif // NODE_H

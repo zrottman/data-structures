@@ -5,12 +5,25 @@ int main()
 {
     char* mystring = "my string";
     Node* stringnode = CreateNode("my key", STRING, mystring);
-    n_display(stringnode);
+    node_print(stringnode);
+    printf("\n");
     DestroyNode(stringnode);
 
     int myint = 215123;
     Node* intnode = CreateNode("my key", INT, &myint);
-    n_display(intnode);
+    node_print(intnode);
+    printf("\n");
+    DestroyNode(intnode);
+
+    float myfloat = 124.2312;
+    Node* floatnode = CreateNode("my key", FLOAT, &myfloat);
+    node_print(floatnode);
+    printf("\n");
+    DestroyNode(floatnode);
+
+    Node* badnode = CreateNode("my key", 5, &myint);
+    node_print(intnode);
+    printf("\n");
     DestroyNode(intnode);
 
     return 0;
