@@ -22,23 +22,23 @@ int main()
     ll_display(mylist);
 
     /* Hash table test */
-    HashTable* ht = CreateHashTable(10);
+    Dictionary* dict = CreateHashTable(10);
     char *keys[] = {"hey", "sup", "morning", "goodbye", "there", "abcde", "cedba", "baedc"};
     char *vals[] = {"hola", "que pasa", "manana", "adios", "alli", "1", "2", "3"};
 
     for (int i=0; i<8; ++i)
     {
-        printf("`%s` hashed to %d\n", keys[i], ht_insert(ht, keys[i], vals[i]));
+        printf("`%s` hashed to %d\n", keys[i], dictionary_insert(dict, keys[i], vals[i]));
     }
 
-    ht_display(ht);
+    dictionary_display(dict);
 
     char* target = "goodbye";
-    printf("%s -> %s\n", target, ht_get(ht, target));
+    printf("%s -> %s\n", target, dictionary_get(dict, target));
     char* target2 = "baedc";
-    printf("%s -> %s\n", target2, ht_get(ht, target2));
+    printf("%s -> %s\n", target2, dictionary_get(dict, target2));
     char* target3 = "sdfasdfa";
-    printf("%s -> %s\n", target3, ht_get(ht, target3));
+    printf("%s -> %s\n", target3, dictionary_get(dict, target3));
 
 
     return 0;
