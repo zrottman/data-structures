@@ -9,7 +9,7 @@ Dictionary* CreateHashTable(size_t capacity)
 {
     Dictionary* dict = malloc(sizeof(Dictionary));
     dict->capacity  = capacity;
-    dict->table     = calloc(capacity, sizeof(*LinkedList));
+    dict->table     = calloc(capacity, sizeof(LinkedList*));
 
     return dict;
 }
