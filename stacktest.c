@@ -10,7 +10,7 @@ int main()
     char *values[] = {"hola", "adios", "aqui", "alli", "noche"};
 
     for (int i=0; i<5; ++i)
-        s_push(s, CreateNode(keys[i], values[i]));
+        s_push(s, CreateNode(keys[i], values[i], STRING));
 
 
     printf("Stack length: %zu\n", s->len);
@@ -19,21 +19,21 @@ int main()
 
     popped = s_pop(s);
     printf("Popped: "); 
-    n_display(popped);
+    node_print(popped);
     printf("\n");
     printf("Stack length: %zu\n", s->len);
     DestroyNode(popped);
 
     popped = s_pop(s);
     printf("Popped: "); 
-    n_display(popped);
+    node_print(popped);
     printf("\n");
     printf("Stack length: %zu\n", s->len);
     DestroyNode(popped);
     
     popped = s_pop(s);
     printf("Popped: "); 
-    n_display(popped);
+    node_print(popped);
     printf("\n");
     printf("Stack length: %zu\n", s->len);
     DestroyNode(popped);

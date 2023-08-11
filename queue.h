@@ -9,8 +9,8 @@ typedef struct Queue {
 } Queue;
 
 Queue*  CreateQueue(void);
-void    DeleteQueue(Queue *q);
-int     q_enqueue(Queue *q, Node *n);
+void    DestroyQueue(Queue *q);
+int     q_enqueue(Queue *q, char *key, void *val, DataType val_type);
 Node*   q_dequeue(Queue *q);
 void    q_display(Queue *q);
 

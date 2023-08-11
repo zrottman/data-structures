@@ -14,8 +14,9 @@ LinkedList* CreateLinkedList(void)
     return linkedlist;
 }
 
-size_t ll_append(LinkedList *ll, Node *n)
+size_t ll_append(LinkedList *ll, char* key, void* val, DataType val_type)
 {
+    Node *n = CreateNode(key, val, val_type);
     if (ll->tail == 0) {
         ll->head = ll->tail = n;
     } else {
@@ -25,11 +26,21 @@ size_t ll_append(LinkedList *ll, Node *n)
     return ++ll->len;
 }
 
+size_t ll_update_or_insert(LinkedList *ll, char* key, void* val, DataType val_type)
+{
+    for (Node *cur = ll->head; cur != NULL; cur = cur->next) {
+        if (strcmp(cur->key, key) == 0) {
+            node_update(cur, val, val_type);
+            return ll->len;
+        }
+    }
+    return ll_append(ll, key, val, val_type);
+}
+
 void ll_display(LinkedList *ll)
 {
     for (Node* cur = ll->head; cur != NULL; cur = cur->next) {
-        //printf("%s / %s -> ", cur->key, cur->val);
-        n_display(cur);
+        node_print(cur);
         printf(" -> ");
     }
     printf("\n");
@@ -62,12 +73,21 @@ int ll_delete_node(LinkedList *ll, char* target)
     return -1;
 }
 
-char* ll_search(LinkedList *ll, char* target)
+int ll_search(LinkedList *ll, char* target)
 {
     for (Node* cur = ll->head; cur != NULL; cur = cur->next)
-        if (strcmp(cur->key, target) == 0) { return cur->val; }
+        if (strcmp(cur->key, target) == 0) { return 0; }
 
-    return 0;
+    return -1;
+}
+
+Node* ll_get(LinkedList *ll, char* target)
+{
+    for (Node* cur = ll->head; cur != NULL; cur = cur->next)
+        if (strcmp(cur->key, target) == 0) { return cur; }
+
+    return NULL;
+
 }
 
 void DestroyLinkedList(LinkedList *ll) 
