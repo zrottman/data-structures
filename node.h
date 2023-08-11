@@ -23,5 +23,6 @@ typedef struct Node {
 Node* CreateNode(char* key, void* val, DataType val_type);
 void  DestroyNode(Node* n);
 void  node_print(Node* n);
+void  node_update(Node* n, void* val, DataType val_type);
 
 #endif // NODE_H

@@ -62,5 +62,26 @@ void node_print(Node* n)
 
 }
 
+void  node_update(Node* n, void* val, DataType val_type)
+{
+    // currently only updates val/val_type
+    if (n != NULL) {
+        if (n->val.type == STRING) { free(n->val.data.s); }
+        n->val.type = val_type;
+        switch (val_type) {
+            case STRING:
+                n->val.data.s = (char*)malloc(strlen((char*)val) + 1);
+                strcpy(n->val.data.s, (char*)val);
+                break;
+            case INT:
+                n->val.data.i = *(int*)val;
+                break;
+            case FLOAT:
+                n->val.data.f = *(float*)val;
+                break;
+        }
+
+    }
+}
 
 
