@@ -4,29 +4,29 @@
 int main()
 {
     char* mystring = "my string";
-    Node* stringnode = CreateNode("my key", STRING, mystring);
+    Node* stringnode = CreateNode("my key", mystring, STRING);
     node_print(stringnode);
     printf("\n");
     DestroyNode(stringnode);
 
     int myint = 215123;
-    Node* intnode = CreateNode("my key", INT, &myint);
+    Node* intnode = CreateNode("my key", &myint, INT);
     node_print(intnode);
     printf("\n");
     DestroyNode(intnode);
 
     float myfloat = 124.2312;
-    Node* floatnode = CreateNode("my key", FLOAT, &myfloat);
+    Node* floatnode = CreateNode("my key", &myfloat, FLOAT);
     node_print(floatnode);
     printf("\n");
     DestroyNode(floatnode);
 
-    Node* intnode2 = CreateNode("my key", INT, &(int){33});
+    Node* intnode2 = CreateNode("my key", &(int){33}, INT);
     node_print(intnode2);
     printf("\n");
     DestroyNode(intnode2);
 
-    Node* badnode = CreateNode("my key", 5, &myint);
+    Node* badnode = CreateNode("my key", &myint, 5);
     node_print(intnode);
     printf("\n");
     DestroyNode(intnode);

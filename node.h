@@ -20,7 +20,7 @@ typedef struct Node {
     struct Node  *next;
 } Node;
 
-Node* CreateNode(char* key, DataType val_type, void* val);
+Node* CreateNode(char* key, void* val, DataType val_type);
 void  DestroyNode(Node* n);
 void  node_print(Node* n);
 

@@ -3,7 +3,7 @@
 #include <string.h>
 #include "node.h"
 
-Node* CreateNode(char* key, DataType val_type, void* val)
+Node* CreateNode(char* key, void* val, DataType val_type)
 {
     Node* node = (Node*)malloc(sizeof(Node));
 

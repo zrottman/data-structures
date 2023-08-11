@@ -16,7 +16,7 @@ LinkedList* CreateLinkedList(void)
 
 size_t ll_append(LinkedList *ll, char* key, void* val, DataType val_type)
 {
-    Node *n = CreateNode(key, val_type, val);
+    Node *n = CreateNode(key, val, val_type);
     if (ll->tail == 0) {
         ll->head = ll->tail = n;
     } else {

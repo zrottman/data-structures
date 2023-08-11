@@ -15,7 +15,7 @@ Queue* CreateQueue(void)
 
 int q_enqueue(Queue* q, char* key, void* val, DataType val_type)
 {
-    Node *n = CreateNode(key, val_type, val);
+    Node *n = CreateNode(key, val, val_type);
     if (q->tail == NULL) {
         q->head = q->tail = n;
     } else {
