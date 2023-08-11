@@ -7,7 +7,7 @@ int main()
 {
 
     /* Hash table test */
-    Dictionary* dict = CreateHashTable(10);
+    Dictionary* dict = CreateDictionary(10);
     char *keys[] = {"hey", "sup", "morning", "goodbye", "there", "abcde", "cedba", "baedc"};
     char *vals[] = {"hola", "que pasa", "manana", "adios", "alli", "anagram 1", "anagram 2", "anagram 3"};
 

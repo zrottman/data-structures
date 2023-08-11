@@ -9,8 +9,8 @@ typedef struct Dictionary {
     size_t       capacity;
 } Dictionary;
 
-Dictionary* CreateHashTable(size_t s);
-void        DestroyHashTable(Dictionary* h);
+Dictionary* CreateDictionary(size_t s);
+void        DestroyDictionary(Dictionary* h);
 int         hash(char* hashable, int hash_size);
 int         dictionary_set(Dictionary* dict, char* key, void* val, DataType val_type);
 void        dictionary_display(Dictionary* dict);

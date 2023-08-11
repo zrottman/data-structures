@@ -5,7 +5,7 @@
 #include "node.h"
 #include "linkedlist.h"
 
-Dictionary* CreateHashTable(size_t capacity)
+Dictionary* CreateDictionary(size_t capacity)
 {
     Dictionary* dict = malloc(sizeof(Dictionary));
     dict->capacity  = capacity;
