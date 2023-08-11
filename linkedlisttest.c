@@ -29,6 +29,9 @@ int main()
     printf("Deleting 'hi'        : %d\n", ll_delete_node(my_list, "hi"));
     printf("Deleting 'addflkasd' : %d\n", ll_delete_node(my_list, "addflkasd"));
 
+    printf("Update or insert: 'bye'. New length: %zu\n", ll_update_or_insert(my_list, "bye", &(int){12345}, INT));
+    printf("Update or insert: '11111'. New length: %zu\n", ll_update_or_insert(my_list, "11111", &(int){11111}, INT));
+
     ll_display(my_list);
 
     printf("Search for 'night'   : %d\n", ll_search(my_list, "night"));
