@@ -13,8 +13,9 @@ Queue* CreateQueue(void)
     return q;
 }
 
-int q_enqueue(Queue* q, Node *n)
+int q_enqueue(Queue* q, char* key, void* val, DataType val_type)
 {
+    Node *n = CreateNode(key, val_type, val);
     if (q->tail == NULL) {
         q->head = q->tail = n;
     } else {
@@ -37,8 +38,10 @@ Node* q_dequeue(Queue* q)
 
 void q_display(Queue *q)
 {
-    for(Node* cur=q->head; cur != NULL; cur=cur->next)
-        printf("%s/%s -> ", cur->key, cur->val);
+    for(Node* cur=q->head; cur != NULL; cur=cur->next) {
+        node_print(cur);
+        printf(" <- ");
+    }
     printf("\n");
 }
 
