@@ -44,22 +44,23 @@ void DestroyNode(Node* n)
 
 void node_print(Node* n)
 {
-    printf("%s/", n->key);
-    switch (n->val.type) {
-        case STRING:
-            printf("%s", n->val.data.s);
-            break;
-        case INT:
-            printf("%d", n->val.data.i);
-            break;
-        case FLOAT:
-            printf("%f", n->val.data.f);
-            break;
-        default:
-            printf("invalid type");
-            break;
+    if (n != NULL) {
+        printf("%s/", n->key);
+        switch (n->val.type) {
+            case STRING:
+                printf("%s", n->val.data.s);
+                break;
+            case INT:
+                printf("%d", n->val.data.i);
+                break;
+            case FLOAT:
+                printf("%f", n->val.data.f);
+                break;
+            default:
+                printf("invalid type");
+                break;
+        }
     }
-
 }
 
 void  node_update(Node* n, void* val, DataType val_type)
