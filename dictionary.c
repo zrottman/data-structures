@@ -21,12 +21,11 @@ int hash(char* hashable, int hash_size)
     return hashed % hash_size;
 }
 
-int dictionary_insert(Dictionary* dict, char* key, char* val)
+int dictionary_set(Dictionary* dict, char* key, void* val, DataType val_type)
 {
-    // support for resetting val at key
     int idx = hash(key, dict->capacity);
     if (dict->table[idx] == 0) { dict->table[idx] = CreateLinkedList(); }
-    ll_append(dict->table[idx], CreateNode(key, val));
+    ll_update_or_insert(dict->table[idx], key, val, val_type);
     return idx;
 }
 
@@ -41,9 +40,9 @@ void dictionary_display(Dictionary* dict)
     }
 }
 
-char* dictionary_get(Dictionary* dict, char* key)
+Node* dictionary_get(Dictionary* dict, char* key)
 {
     int idx = hash(key, dict->capacity);
-    return (dict->table[idx] == NULL) ? 0 : ll_search(dict->table[idx], key);
+    return (dict->table[idx] == NULL) ? 0 : ll_get(dict->table[idx], key);
 }
 

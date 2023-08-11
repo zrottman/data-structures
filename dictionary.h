@@ -10,10 +10,10 @@ typedef struct Dictionary {
 } Dictionary;
 
 Dictionary* CreateHashTable(size_t s);
-void       DestroyHashTable(Dictionary* h);
-int        hash(char* hashable, int hash_size);
-int        dictionary_insert(Dictionary* dict, char* key, char* val);
-void       dictionary_display(Dictionary* dict);
-char*      dictionary_get(Dictionary* dict, char* key);
+void        DestroyHashTable(Dictionary* h);
+int         hash(char* hashable, int hash_size);
+int         dictionary_set(Dictionary* dict, char* key, void* val, DataType val_type);
+void        dictionary_display(Dictionary* dict);
+Node*       dictionary_get(Dictionary* dict, char* key);
 
 #endif // HASHTABLE_H
