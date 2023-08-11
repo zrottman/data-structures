@@ -21,6 +21,11 @@ int main()
     printf("\n");
     DestroyNode(floatnode);
 
+    Node* intnode2 = CreateNode("my key", INT, &(int){33});
+    node_print(intnode2);
+    printf("\n");
+    DestroyNode(intnode2);
+
     Node* badnode = CreateNode("my key", 5, &myint);
     node_print(intnode);
     printf("\n");
