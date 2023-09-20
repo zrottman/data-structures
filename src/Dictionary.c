@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "dictionary.h"
-#include "node.h"
-#include "linkedlist.h"
+#include "Dictionary.h"
+#include "Node.h"
+#include "LinkedList.h"
 
 Dictionary* CreateDictionary(size_t capacity)
 {

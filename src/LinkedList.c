@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "linkedlist.h"
-#include "node.h"
+#include "LinkedList.h"
+#include "Node.h"
 
 LinkedList* CreateLinkedList(void)
 {
