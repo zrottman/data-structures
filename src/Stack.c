@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "node.h"
-#include "stack.h"
+#include "Node.h"
+#include "Stack.h"
 
 Stack* CreateStack(void)
 {

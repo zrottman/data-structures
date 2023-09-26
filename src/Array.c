@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "array.h"
+#include "Array.h"
 
 void array_init(Array *a, size_t cap) {
     a->length   = 0;
