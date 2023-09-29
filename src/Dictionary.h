@@ -1,5 +1,5 @@
-#ifndef HASHTABLE_H
-#define HASHTABLE_H
+#ifndef DICTIONARY_H
+#define DICTIONARY_H
 
 #include "linkedlist.h"
 #include "node.h"
@@ -16,4 +16,4 @@ int         dictionary_set(Dictionary* dict, char* key, void* val, DataType val_
 void        dictionary_display(Dictionary* dict);
 Node*       dictionary_get(Dictionary* dict, char* key);
 
-#endif // HASHTABLE_H
+#endif // DICTIONARY_H
