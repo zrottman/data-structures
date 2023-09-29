@@ -1,9 +1,8 @@
 #include "../src/Heap.h"
-#include "../src/Array.h"
 
 int main() {
 
-    Array* h = heap_construct();
+    Heap* h = heap_construct();
 
     int  nums_count = 15;
     int *nums;
