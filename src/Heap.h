@@ -30,4 +30,5 @@ int    get_right_child(Heap* h, size_t parent_idx);
 size_t heap_insert(Heap* h, int val);
 size_t heapify_up(Heap *h, size_t idx);
 size_t heapify_down(Heap *h, size_t idx);
+int    poll(Heap *h);
 void   heap_display(Heap* h);

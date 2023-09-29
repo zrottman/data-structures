@@ -109,6 +109,14 @@ size_t heapify_down(Heap *h, size_t idx) {
     return idx;
 }
 
+int poll(Heap *h) {
+    int polled;
+    heap_swap(h, 0, h->length);
+    polled = h->items[h->length--];
+    heapify_down(h, 0);
+    return polled;
+}
+
 void heap_display(Heap* h) {
     for (int i=0; i<h->length; ++i) {
         printf("%d ", h->items[i]);
