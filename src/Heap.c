@@ -7,7 +7,7 @@
 Heap* heap_init(size_t capacity, HeapType type) {
     Heap* h = malloc(sizeof(Heap));
 
-    h->items    = calloc(capacity + 1, sizeof(int));
+    h->items    = calloc(capacity, sizeof(int));
     h->length   = 0;
     h->capacity = capacity;
     h->type     = type;
@@ -74,8 +74,8 @@ int get_right_child(Heap* h, size_t parent_idx) {
 size_t heap_insert(Heap* h, int val) {
     size_t idx;
     h->items[h->length] = val;
-    idx = h->length;
-    if (h->length < h->capacity) { h->length++; }
+    // add support here for dynamic array
+    idx = h->length++;
     idx = heapify_up(h, idx);
     idx = heapify_down(h, idx);
     return idx;
@@ -109,12 +109,15 @@ size_t heapify_down(Heap *h, size_t idx) {
     return idx;
 }
 
-int poll(Heap *h) {
-    int polled;
-    heap_swap(h, 0, h->length);
-    polled = h->items[h->length--];
+int poll(Heap *h, int *res) {
+    if (h->length == 0) {
+        *res = EMPTY_HEAP_SENTINEL;
+        return HEAP_EMPTY_ERROR;
+    }
+    heap_swap(h, 0, --h->length);
+    *res = h->items[h->length];
     heapify_down(h, 0);
-    return polled;
+    return SUCCESS;
 }
 
 void heap_display(Heap* h) {

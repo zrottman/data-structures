@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <limits.h>
+
+#define EMPTY_HEAP_SENTINEL INT_MIN
+#define HEAP_EMPTY_ERROR -1
+#define SUCCESS 0
 
 typedef enum HeapType { MAX, MIN } HeapType;
 
@@ -30,5 +35,5 @@ int    get_right_child(Heap* h, size_t parent_idx);
 size_t heap_insert(Heap* h, int val);
 size_t heapify_up(Heap *h, size_t idx);
 size_t heapify_down(Heap *h, size_t idx);
-int    poll(Heap *h);
+int    poll(Heap *h, int *res);
 void   heap_display(Heap* h);
