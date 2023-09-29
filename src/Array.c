@@ -72,14 +72,16 @@ int array_get(Array *a, size_t idx) {
 }
 
 void array_display(Array *a) {
-    printf("[");
     for (int i=0; i<a->length; ++i) {
+        if (i == 0) {
+            printf("[");
+        }
         printf("%d", a->items[i]);
         if (i == a->length - 1) {
             printf("]");
-            continue;
+        } else {
+            printf(", ");
         }
-        printf(", ");
     }
     printf("\n");
 }
