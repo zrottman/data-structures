@@ -1,3 +1,6 @@
+#ifndef HEAP_H
+#define HEAP_H
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -37,3 +40,5 @@ size_t heapify_up(Heap *h, size_t idx);
 size_t heapify_down(Heap *h, size_t idx);
 int    poll(Heap *h, int *res);
 void   heap_display(Heap* h);
+
+#endif // HEAP_H
