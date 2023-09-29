@@ -6,17 +6,15 @@ void setUp(void) {}
 void tearDown(void) {}
 
 void test_create_heap(void) {
-    Heap* h = NULL;
-    h = heap_init(10, MAX);
+    Heap* h = heap_construct();
     TEST_ASSERT_NOT_NULL(h);
     TEST_ASSERT_EQUAL(h->length, 0);
-    TEST_ASSERT_EQUAL(h->capacity, 10);
     heap_destroy(&h);
     TEST_ASSERT_NULL(h);
 }
 
 void test_heap_swap(void) {
-    Heap* h = heap_init(10, MAX);
+    Heap* h = heap_construct();
     for (int i=0; i<10; ++i) {
         h->items[i] = i+1;
     }
@@ -69,7 +67,7 @@ void test_get_right_child_idx(void) {
 }
 
 void test_get_parent(void) {
-    Heap* h = heap_init(15, MAX);
+    Heap* h = heap_construct();
     for (int i=0; i<15; ++i) {
         h->items[i] = i*10;
     }
@@ -91,7 +89,7 @@ void test_get_parent(void) {
 }
 
 void test_get_left_child(void) {
-    Heap* h = heap_init(15, MAX);
+    Heap* h = heap_construct();
     for (int i=0; i<15; ++i) {
         h->items[i] = i*10;
     }
@@ -106,7 +104,7 @@ void test_get_left_child(void) {
 }
 
 void test_get_right_child(void) {
-    Heap* h = heap_init(15, MAX);
+    Heap* h = heap_construct();
     for (int i=0; i<15; ++i) {
         h->items[i] = i*10;
     }
@@ -121,7 +119,7 @@ void test_get_right_child(void) {
 }
 
 void test_has_parent(void) {
-    Heap* h = heap_init(15, MAX);
+    Heap* h = heap_construct();
     for (int i=0; i<15; ++i) { 
         h->items[i] = i*10; 
         h->length++;
@@ -136,7 +134,7 @@ void test_has_parent(void) {
 }
 
 void test_has_left_child(void) {
-    Heap* h = heap_init(15, MAX);
+    Heap* h = heap_construct();
     for (int i=0; i<15; ++i) { 
         h->items[i] = i*10; 
         h->length++;
@@ -151,7 +149,7 @@ void test_has_left_child(void) {
 }
 
 void test_has_right_child(void) {
-    Heap* h = heap_init(15, MAX);
+    Heap* h = heap_construct();
     for (int i=0; i<15; ++i) { 
         h->items[i] = i*10; 
         h->length++;
@@ -168,14 +166,15 @@ void test_has_right_child(void) {
 // test for polling from empty heap
 
 void test_poll(void) {
-    Heap* h = heap_init(15, MAX);
-    int polled;
-    int success;
-    int nums[15] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-    for (int i=0; i<15; ++i) { heap_insert(h, nums[i]); }
-    for (int i=0; i<15; ++i) {
+    Heap*  h = heap_construct();
+    int    polled;
+    int    success;
+    size_t count = 100;
+
+    for (int i=0; i<count; ++i) { heap_insert(h, i); }
+    for (int i=0; i<count; ++i) {
         success = poll(h, &polled);
-        TEST_ASSERT_EQUAL(15-i, polled);
+        TEST_ASSERT_EQUAL(count-i-1, polled);
         TEST_ASSERT_EQUAL(success, SUCCESS);
     }
     success = poll(h, &polled);
