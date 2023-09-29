@@ -54,3 +54,16 @@ int array_get(Array *a, size_t idx) {
     }
     return a->items[idx];
 }
+
+void array_display(Array *a) {
+    printf("[");
+    for (int i=0; i<a->length; ++i) {
+        printf("%d", a->items[i]);
+        if (i == a->length - 1) {
+            printf("]");
+            continue;
+        }
+        printf(", ");
+    }
+    printf("\n");
+}
