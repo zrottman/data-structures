@@ -1,51 +1,33 @@
 #include "../src/Heap.h"
+#include "../src/Array.h"
 
 int main() {
-    Heap* h;
-    int five_nums[5] = {5, 2, 7, 6, 1};
-    int ten_nums[10] = {5, 2, 7, 6, 1, 50, 20, 10, 12, 33};
-    int fifteen_nums[15] = {5, 2, 7, 6, 1, 50, 20, 10, 12, 33, 3, 43, 51, 53, 68};
-    int nums[15] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
-    /* fewer items than cap */
-    h = heap_init(10, MIN);
-    for (int i=0; i<5; ++i) { heap_insert(h, five_nums[i]); }
+    Array* h = heap_construct();
+
+    int  nums_count = 15;
+    int *nums;
+
+    // insert into heap
+    for (int i=0; i<nums_count; ++i) { 
+        printf("Inserting %d\n", i+1);
+        heap_insert(h, i+1); 
+        heap_display(h);
+    }
+
+    // display heap
+    printf("Displaying heap\n");
     heap_display(h);
-    heap_destroy(&h);
+    printf("\n");
 
-    /* same number items as cap */
-    h = heap_init(10, MIN);
-    for (int i=0; i<10; ++i) { heap_insert(h, ten_nums[i]); }
-    heap_display(h);
-    heap_destroy(&h);
-
-    /* more items than cap: not currently working */
-    h = heap_init(10, MIN);
-    for (int i=0; i<15; ++i) { heap_insert(h, fifteen_nums[i]); }
-    heap_display(h);
-    heap_destroy(&h);
-
-    /* poll */
-    h = heap_init(15, MIN);
+    // poll
     int polled;
-    printf("INSERTING\n");
-    for (int i=0; i<15; ++i) { 
-        heap_insert(h, nums[i]); 
-        heap_display(h);
-    }
-    poll(h, &polled);
-    printf("Polling: %d\n", polled);
 
-    for (int i=0; i<15; ++i) {
+    for (int i=0; i<17; ++i) {
+        if (poll(h, &polled) == 0) { printf("Polling: %d\n", polled); }
         heap_display(h);
-        if (poll(h, &polled) == 0) {
-            printf("Polling: %d\n", polled);
-        } else {
-            printf("error");
-            break;
-        }
     }
-    heap_display(h);
+
     heap_destroy(&h);
 
     return 0;
