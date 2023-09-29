@@ -1,51 +1,67 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "Array.h"
 
 Array* array_construct(size_t cap) {
     Array *a    = malloc(sizeof(Array));
+
+    // handle struct allocation error
     if (a == NULL) {
-        // handle
+        return NULL;
     }
+
     a->length   = 0;
     a->capacity = cap;
     a->items    = calloc(cap, sizeof(int));
+
+    // handle array allocation error
     if (a->items == NULL) {
-        //handle
+        free(a);
+        return NULL;
     }
+
     return a;
 }
 
 void array_destroy(Array** a) {
+    // free array and point to NULL
     free((*a)->items);
     (*a)->items = NULL;
+    // free struct and point to NULL
     free(*a);
     (*a) = NULL;
 }
 
 void array_resize(Array *a, size_t new_capacity) {
 
-    printf("Resizing array: %zu -> %zu\n", a->capacity, new_capacity);
-    
-    int *items = calloc(new_capacity, sizeof(int));
-    if (items == NULL) {
+    int *new_items = calloc(new_capacity, sizeof(int));
+
+    if (new_items == NULL) {
         // handle
     }
-    for (int i=0; i<a->length; ++i)
-        items[i] = a->items[i];
+
+    // copy items from old to new
+    for (int i=0; i<a->length; ++i) { new_items[i] = a->items[i]; }
+    
+    // free old array
     free(a->items);
+
+    // update capacity and copy new_items
     a->capacity = new_capacity;
-    a->items    = items;
+    a->items    = new_items;
 
     return;
 }
 
 size_t array_append(Array *a, int item) {
-    if (a->length == a->capacity)
+    // double array if at capacity
+    if (a->length == a->capacity) {
         array_resize(a, a->capacity * 2);
+    }
+
+    // add item to next available idx
     a->items[a->length] = item;
 
-    return ++a->length; // return new length
+    // return new length of array
+    return ++a->length;
 }
 
 int array_get(Array *a, size_t idx) {
