@@ -46,18 +46,12 @@ void test_node_update(void)
     DestroyNode(node);
 }
 
-void failing_test(void)
-{
-    TEST_ASSERT_EQUAL(1, 2);
-}
-
 int main(void)
 {
     UNITY_BEGIN();
     RUN_TEST(test_CreateNode_handles_string_vals);
     RUN_TEST(test_CreateNode_handles_float_vals);
     RUN_TEST(test_CreateNode_handles_int_vals);
-    RUN_TEST(failing_test);
     RUN_TEST(test_node_update);
     return UNITY_END();
 }

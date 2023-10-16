@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "Node.h"
 
 Node* CreateNode(char* key, void* val, DataType val_type)

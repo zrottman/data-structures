@@ -1,18 +1,32 @@
 #include <stdio.h>
-#include "array.h"
+#include "../src/Array.h"
 
 int main()
 {
-    Array a;
+    Array  *a = array_construct(8);
+    size_t idx;
 
-    array_init(&a, 8);
+    printf("Starting capacity: %zu\n", a->capacity);
 
-    for (int i=0; i<100; ++i)
-        array_append(&a, i);
-    
-    for (int i=0; i<100; ++i)
-        printf("%d ", a.items[i]);
-    printf("\n");
+    // populate array
+    for (int i=0; i<100; ++i) { array_append(a, i); }
+
+    // display array
+    array_display(a);
+
+    // get
+    idx = 65;
+    printf("Getting idx %zu: %d\n", idx, array_get(a, idx));
+    idx = 0;
+    printf("Getting idx %zu: %d\n", idx, array_get(a, idx));
+    idx = 24;
+    printf("Getting idx %zu: %d\n", idx, array_get(a, idx));
+    idx = 99;
+    printf("Getting idx %zu: %d\n", idx, array_get(a, idx));
+
+    printf("Ending capacity: %zu\n", a->capacity);
+
+    array_destroy(&a);
 
     return 0;
 }

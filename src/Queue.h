@@ -1,6 +1,9 @@
 #ifndef QUEUE_H
 #define QUEUE_H
-#include "node.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "Node.h"
 
 typedef struct Queue {
     Node *head;

@@ -10,8 +10,11 @@ typedef struct Array {
     size_t capacity;
 } Array;
 
-void   array_init(Array *a, size_t cap);
+Array* array_construct(size_t cap);
+void   array_destroy (Array **a);
 void   array_resize(Array *a, size_t new_capacity);
 size_t array_append(Array *a, int item);
+int    array_get(Array *a, size_t idx);
+void   array_display(Array *a);
 
 #endif // ARRAY_H
