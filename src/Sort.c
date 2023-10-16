@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "Sort.h"
 
 void _merge_sort_helper(int* arr, size_t low, size_t high)
 {
