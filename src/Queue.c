@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "Queue.h"
-#include "Node.h"
 
 Queue* CreateQueue(void)
 {

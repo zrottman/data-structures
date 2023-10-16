@@ -1,8 +1,11 @@
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
-#include "linkedlist.h"
-#include "node.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "Node.h"
+#include "LinkedList.h"
 
 typedef struct Dictionary {
     LinkedList** table;
