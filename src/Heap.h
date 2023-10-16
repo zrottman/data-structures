@@ -1,9 +1,9 @@
 #ifndef HEAP_H
 #define HEAP_H
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include <stdlib.h>
 #include <limits.h>
 #include "Array.h"
 

@@ -1,8 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdbool.h>
 #include "Heap.h"
-#include "Array.h"
 
 
 Heap* heap_construct(void) {
